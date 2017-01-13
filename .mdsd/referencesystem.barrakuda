@@ -1,0 +1,67 @@
+domain kongo package edu.hm.ba version 1.0;
+
+serviceModel shoppingcart package edu.hm.ba.kongo.shop version 1.0 {
+
+    customNumberType intMin1 minValue=1;
+
+    entity Cart {
+        items manyToMany CartItem;
+        userID warehouse.OID "123";
+        totalPrice warehouse.float "15.5";
+	}
+	
+	valueObject CartItem {
+	    product warehouse.OID mainFeature "123";
+	    quantity intMin1 mainFeature "1";
+	}
+	
+    businessAction addToCart {
+        purpose "Add a product from the warehouse to the users current shopping cart";
+        given productID warehouse.OID;
+        given quantity intMin1;
+    }
+
+}
+
+serviceModel ordering package edu.hm.ba.kongo.shop version 1.0{
+
+    customTimeType dateInPast inThePast;
+
+    entity order {
+        cart warehouse.OID "123";
+        orderedOn dateInPast "10.10.2010";
+    }
+    
+    businessAction orderCart {
+	    purpose "Receives a shopping cart to create a new order which can then be payed";
+	    given cartID warehouse.OID;
+	}
+    
+    businessAction sendInvoice{
+        purpose "Sends the value of the costs of the ordered procuts to an invoicing system";
+        given orderID warehouse.OID;
+    }
+    
+    businessAction cancelOrder{
+        purpose "Deletes an order and the associated shopping cart with it's contents";
+        given orderID warehouse.OID;
+    }
+    
+}
+
+serviceModel warehouse package edu.hm.ba.kongo.shop version 1.0{
+
+    customTextType OID maxLength=24;
+    customTextType stringMin1 minLength=1;
+    customTextType longText type=long;
+	customNumberType float pointNumber minValue=0;
+	customNumberType int minValue=0;
+    
+    entity Product {
+        name stringMin1 searchable mainFeature "Bottle";
+        description longText optional "Great for storing water";
+        price float mainFeature "10.5";
+        quantity int mainFeature "5";
+    }
+    
+}

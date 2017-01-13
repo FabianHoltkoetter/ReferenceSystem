@@ -1,0 +1,46 @@
+version: '2'
+
+services:
+
+    registry:
+        build: infrastructure-service-registry/target
+        ports:
+            - 8761:8761
+        environment:
+            - SPRING_PROFILES_ACTIVE=docker
+
+    config:
+        build: infrastructure-service-config/target
+        links:
+            - registry:discovery
+        environment:
+            - SPRING_PROFILES_ACTIVE=docker
+
+    auth:
+        build: infrastructure-service-auth/target
+        ports:
+            - 9999:8080
+        links:
+            - registry:discovery
+        environment:
+            - SPRING_PROFILES_ACTIVE=docker
+
+    kongo-service-shoppingcart:
+        build: kongo-service-shoppingcart/kongo-shoppingcart-service/target
+        links:
+            - registry:discovery
+        environment:
+            - SPRING_PROFILES_ACTIVE=docker
+    kongo-service-ordering:
+        build: kongo-service-ordering/kongo-ordering-service/target
+        links:
+            - registry:discovery
+        environment:
+            - SPRING_PROFILES_ACTIVE=docker
+    kongo-service-warehouse:
+        build: kongo-service-warehouse/kongo-warehouse-service/target
+        links:
+            - registry:discovery
+        environment:
+            - SPRING_PROFILES_ACTIVE=docker
+
