@@ -6,10 +6,7 @@ package edu.hm.ba.kongo.shop.shoppingcart.client.local;
  */
 import java.util.stream.Stream;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import edu.hm.ba.kongo.shop.shoppingcart.client.local.CartItem_;
 import org.springframework.hateoas.ResourceSupport;
