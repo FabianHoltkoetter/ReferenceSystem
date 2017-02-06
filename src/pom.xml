@@ -15,6 +15,7 @@
     	<module>infrastructure-service-auth</module>
     	<module>infrastructure-service-hystrix</module>
     	<module>infrastructure-service-config</module>
+        <module>infrastructure-service-edge</module>
     	<module>infrastructure-service-registry</module>
         <module>kongo-service-shoppingcart</module>
         <module>kongo-service-ordering</module>

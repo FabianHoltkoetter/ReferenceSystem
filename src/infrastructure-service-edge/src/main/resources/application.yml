@@ -1,0 +1,58 @@
+info:
+  component: Zuul Server
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+zuul:
+  sensitiveHeaders: Cookie, Set-Cookie
+  routes:
+    auth:
+      path: /auth/**
+      url: http://AUTHSERVICE/
+    config:
+      path: /config/**
+      url: http://CONFIGSERVER/
+    hystrix:
+      path: /hystrix/**
+      url: http://HYSTRIXDASHBOARD/
+    ordering:
+      path: /ordering/**
+      url: http://ORDERING-MICROSERVICE/
+    shoppingcart:
+      path: /shoppingcart/**
+      url: http://SHOPPINGCART-MICROSERVICE/
+    warehouse:
+      path: /warehouse/**
+      url: http://WAREHOUSE-MICROSERVICE/
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+---
+spring:
+  profiles: docker
+eureka.client.serviceUrl.defaultZone: http://discovery:8761/eureka/
+---
+spring:
+  profiles: local
+
+server:
+  port: 8765
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: INFO
+
+eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
+---
+spring:
+  profiles: vm
+eureka.client.serviceUrl.defaultZone: http://${eureka.address}:8761/eureka/
