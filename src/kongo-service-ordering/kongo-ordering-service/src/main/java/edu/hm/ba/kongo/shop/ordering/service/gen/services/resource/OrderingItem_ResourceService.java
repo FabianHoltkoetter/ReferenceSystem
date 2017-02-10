@@ -2,7 +2,7 @@ package edu.hm.ba.kongo.shop.ordering.service.gen.services.resource;
 
 import org.springframework.hateoas.Resource;
 
-import edu.hm.ba.kongo.shop.ordering.service.gen.domain.Order_;
+import edu.hm.ba.kongo.shop.ordering.service.gen.domain.OrderingItem_;
 
 /*
  * This file will be overwritten on every change of the model!
@@ -11,9 +11,9 @@ import edu.hm.ba.kongo.shop.ordering.service.gen.domain.Order_;
 /**
  * Provides methods to alter resources before being sent to a client.
  */
-public interface Order_ResourceService {
+public interface OrderingItem_ResourceService {
 	/**
 	 * Process a resource. You can add links and alter the entity itself.
 	 */
-	Resource<Order_> process(Resource<Order_> resource);
+	Resource<OrderingItem_> process(Resource<OrderingItem_> resource);
 }

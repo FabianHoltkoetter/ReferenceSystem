@@ -1,10 +1,9 @@
 package unit;
 
-import edu.hm.ba.kongo.shop.ordering.service.gen.domain.Order_;
-import edu.hm.ba.kongo.shop.ordering.service.gen.services.resource.Order_ResourceService;
-import edu.hm.ba.kongo.shop.ordering.service.services.resource.Order_ResourceServiceImpl;
+import edu.hm.ba.kongo.shop.ordering.service.gen.domain.OrderingItem_;
+import edu.hm.ba.kongo.shop.ordering.service.gen.services.resource.OrderingItem_ResourceService;
+import edu.hm.ba.kongo.shop.ordering.service.services.resource.OrderingItem_ResourceServiceImpl;
 import org.junit.Test;
-
 import org.springframework.hateoas.Resource;
 
 import java.time.LocalDate;
@@ -16,18 +15,18 @@ import static org.junit.Assert.assertEquals;
  */
 public class Order_ResourceServiceImplTest {
 
-    Order_ResourceService order_resourceService = new Order_ResourceServiceImpl();
+    OrderingItem_ResourceService order_resourceService = new OrderingItem_ResourceServiceImpl();
 
     @Test
     public void processTest(){
-        Order_ order_ = new Order_();
+        OrderingItem_ order_ = new OrderingItem_();
         String cart = "testcart";
         LocalDate orderdOn = LocalDate.of(2010, 10, 10);
         order_.setCart(cart);
         order_.setOrderedOn(orderdOn);
-        Resource<Order_> resource = new Resource(order_);
+        Resource<OrderingItem_> resource = new Resource(order_);
 
-        Resource<Order_> process = order_resourceService.process(resource);
+        Resource<OrderingItem_> process = order_resourceService.process(resource);
 
         assertEquals(process.getContent().getCart(), cart);
         assertEquals(process.getContent().getOrderedOn(), orderdOn);

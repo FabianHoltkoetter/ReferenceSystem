@@ -1,6 +1,13 @@
 info:
   component: Zuul Server
 
+# Service Info
+spring:
+  profiles:
+    active: local
+  application:
+    name: Zuul
+
 endpoints:
   restart:
     enabled: true
@@ -14,22 +21,22 @@ zuul:
   routes:
     auth:
       path: /auth/**
-      url: http://AUTHSERVICE/
+      serviceId: AUTHSERVICE
     config:
       path: /config/**
-      url: http://CONFIGSERVER/
+      serviceId: CONFIGSERVER
     hystrix:
       path: /hystrix/**
-      url: http://HYSTRIXDASHBOARD/
+      serviceId: HYSTRIXDASHBOARD
     ordering:
       path: /ordering/**
-      url: http://ORDERING-MICROSERVICE/
+      serviceId: ORDERING-MICROSERVICE
     shoppingcart:
       path: /shoppingcart/**
-      url: http://SHOPPINGCART-MICROSERVICE/
+      serviceId: SHOPPINGCART-MICROSERVICE
     warehouse:
       path: /warehouse/**
-      url: http://WAREHOUSE-MICROSERVICE/
+      serviceId: WAREHOUSE-MICROSERVICE
 
 eureka:
   client:
@@ -44,7 +51,7 @@ spring:
   profiles: local
 
 server:
-  port: 8765
+  port: 8888
 
 logging:
   level:

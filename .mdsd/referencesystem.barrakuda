@@ -27,7 +27,7 @@ serviceModel ordering package edu.hm.ba.kongo.shop version 1.0{
 
     customTimeType dateInPast inThePast;
 
-    entity order {
+    entity orderingItem {
         cart warehouse.OID "123";
         orderedOn dateInPast "10.10.2010";
     }

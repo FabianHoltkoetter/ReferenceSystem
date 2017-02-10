@@ -4,7 +4,7 @@
 	--Tables
 	--**************************
 	
-	create table Order (
+	create table OrderingItem (
 	oid varchar(36),
 	cart varchar(24) not null, 
 	orderedon datetime not null, 

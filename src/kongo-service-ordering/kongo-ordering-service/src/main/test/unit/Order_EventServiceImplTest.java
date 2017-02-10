@@ -1,8 +1,8 @@
 package unit;
 
-import edu.hm.ba.kongo.shop.ordering.service.gen.domain.Order_;
-import edu.hm.ba.kongo.shop.ordering.service.gen.services.event.Order_EventService;
-import edu.hm.ba.kongo.shop.ordering.service.services.event.Order_EventServiceImpl;
+import edu.hm.ba.kongo.shop.ordering.service.gen.domain.OrderingItem_;
+import edu.hm.ba.kongo.shop.ordering.service.gen.services.event.OrderingItem_EventService;
+import edu.hm.ba.kongo.shop.ordering.service.services.event.OrderingItem_EventServiceImpl;
 import org.junit.Test;
 
 import java.time.LocalDate;
@@ -15,11 +15,11 @@ import static org.junit.Assert.assertEquals;
 public class Order_EventServiceImplTest {
 
 
-    Order_EventService order_eventService = new Order_EventServiceImpl();
+    OrderingItem_EventService order_eventService = new OrderingItem_EventServiceImpl();
 
     @Test
     public void onAfterCreateTest(){
-        Order_ order_ = new Order_();
+        OrderingItem_ order_ = new OrderingItem_();
         String cart = "testcart";
         LocalDate orderdOn = LocalDate.of(2010, 10, 10);
         order_.setCart(cart);
@@ -33,7 +33,7 @@ public class Order_EventServiceImplTest {
 
     @Test
     public void onBeforeCreateTest(){
-        Order_ order_ = new Order_();
+        OrderingItem_ order_ = new OrderingItem_();
         String cart = "testcart";
         LocalDate orderdOn = LocalDate.of(2010, 10, 10);
         order_.setCart(cart);
@@ -47,7 +47,7 @@ public class Order_EventServiceImplTest {
 
     @Test
     public void onAfterSaveTest(){
-        Order_ order_ = new Order_();
+        OrderingItem_ order_ = new OrderingItem_();
         String cart = "testcart";
         LocalDate orderdOn = LocalDate.of(2010, 10, 10);
         order_.setCart(cart);
@@ -61,7 +61,7 @@ public class Order_EventServiceImplTest {
 
     @Test
     public void onBeforeSaveTest(){
-        Order_ order_ = new Order_();
+        OrderingItem_ order_ = new OrderingItem_();
         String cart = "testcart";
         LocalDate orderdOn = LocalDate.of(2010, 10, 10);
         order_.setCart(cart);
@@ -75,7 +75,7 @@ public class Order_EventServiceImplTest {
 
     @Test
     public void onAfterLinkSaveTest(){
-        Order_ order_ = new Order_();
+        OrderingItem_ order_ = new OrderingItem_();
         String cart = "testcart";
         LocalDate orderdOn = LocalDate.of(2010, 10, 10);
         String anotherObject = "test";
@@ -90,7 +90,7 @@ public class Order_EventServiceImplTest {
 
     @Test
     public void onBeforeLinkSaveTest(){
-        Order_ order_ = new Order_();
+        OrderingItem_ order_ = new OrderingItem_();
         String cart = "testcart";
         LocalDate orderdOn = LocalDate.of(2010, 10, 10);
         String anotherObject = "test";
@@ -105,7 +105,7 @@ public class Order_EventServiceImplTest {
 
     @Test
     public void onAfterLinkDeleteTest(){
-        Order_ order_ = new Order_();
+        OrderingItem_ order_ = new OrderingItem_();
         String cart = "testcart";
         LocalDate orderdOn = LocalDate.of(2010, 10, 10);
         String anotherObject = "test";
@@ -120,7 +120,7 @@ public class Order_EventServiceImplTest {
 
     @Test
     public void onBeforeLinkDeleteTest(){
-        Order_ order_ = new Order_();
+        OrderingItem_ order_ = new OrderingItem_();
         String cart = "testcart";
         LocalDate orderdOn = LocalDate.of(2010, 10, 10);
         String anotherObject = "test";
@@ -135,7 +135,7 @@ public class Order_EventServiceImplTest {
 
     @Test
     public void onAfterDeleteTest(){
-        Order_ order_ = new Order_();
+        OrderingItem_ order_ = new OrderingItem_();
         String cart = "testcart";
         LocalDate orderdOn = LocalDate.of(2010, 10, 10);
         order_.setCart(cart);
@@ -149,7 +149,7 @@ public class Order_EventServiceImplTest {
 
     @Test
     public void onBeforeDelete(){
-        Order_ order_ = new Order_();
+        OrderingItem_ order_ = new OrderingItem_();
         String cart = "testcart";
         LocalDate orderdOn = LocalDate.of(2010, 10, 10);
         order_.setCart(cart);

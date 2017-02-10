@@ -7,8 +7,8 @@ import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.ResourceProcessor;
 import org.springframework.stereotype.Component;
 
-import edu.hm.ba.kongo.shop.ordering.service.gen.domain.Order_;
-import edu.hm.ba.kongo.shop.ordering.service.gen.services.resource.Order_ResourceService;
+import edu.hm.ba.kongo.shop.ordering.service.gen.domain.OrderingItem_;
+import edu.hm.ba.kongo.shop.ordering.service.gen.services.resource.OrderingItem_ResourceService;
 
 /*
  * This file will be overwritten on every change of the model!
@@ -18,16 +18,16 @@ import edu.hm.ba.kongo.shop.ordering.service.gen.services.resource.Order_Resourc
  * This RessourceProcessor can alter Resources, before they are sent out.
  */
 @Component
-public class Order_ResourceProcessor implements ResourceProcessor<Resource<Order_>> {
+public class OrderingItem_ResourceProcessor implements ResourceProcessor<Resource<OrderingItem_>> {
 
 	/**
-	 * Service for processing Order_ entities.
+	 * Service for processing OrderingItem_ entities.
 	 */
 	@Autowired
-	Order_ResourceService resourceService;
+	OrderingItem_ResourceService resourceService;
 
 	@Override
-    public Resource<Order_> process(Resource<Order_> resource) {
+    public Resource<OrderingItem_> process(Resource<OrderingItem_> resource) {
 	    // Hand the resource to the service.
 		resourceService.process(resource);
         return resource;

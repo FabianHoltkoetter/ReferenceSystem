@@ -1,17 +1,12 @@
 package edu.hm.ba.kongo.shop.ordering.service.services.businessactions;
 
-import org.springframework.stereotype.Service;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import java.util.Arrays;
-import java.util.UUID;
-import java.text.ParseException;
+import edu.hm.ba.kongo.shop.ordering.service.gen.domain.OrderingItem_;
 import edu.hm.ba.kongo.shop.ordering.service.gen.services.businessactions.TestDatenBusinessActionService;
-import edu.hm.ba.kongo.shop.ordering.service.gen.domain.Order_;
-import edu.hm.ba.kongo.shop.ordering.service.rest.Order_Repository;
+import edu.hm.ba.kongo.shop.ordering.service.rest.OrderingItem_Repository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import de.muenchen.service.security.UserInfo;
+import java.util.UUID;
 
 /**
  * Provides a service to execute business-actions.
@@ -25,12 +20,12 @@ public class TestDatenBusinessActionServiceImpl implements TestDatenBusinessActi
 	// @Autowired
 	// <EntityName>Repository repo;
 	@Autowired
-	Order_Repository orderRepo;
+	OrderingItem_Repository orderRepo;
 
 	public void testdatenErzeugen(){
 		
 		//insert example data for Order_
-		Order_ order = new Order_();
+		OrderingItem_ order = new OrderingItem_();
 		order.setCart("123");
 		order.setOrderedOn(java.time.LocalDate.parse("10.10.2010",java.time.format.DateTimeFormatter.ofPattern("dd.MM.yyyy")));
 		order.setOid(UUID.randomUUID());
