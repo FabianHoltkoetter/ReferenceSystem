@@ -11,7 +11,6 @@ import de.muenchen.vaadin.guilib.BaseUI;
 import de.muenchen.vaadin.guilib.components.BaseComponent;
 import de.muenchen.vaadin.guilib.components.buttons.ActionButton;
 
-import edu.hm.ba.kongo.shop.ordering.client.local.Order_;
 import edu.hm.ba.kongo.shop.ordering.guilib.gen.ui.components.buttons.listener.order.Order_SingleActions;
 
 /**

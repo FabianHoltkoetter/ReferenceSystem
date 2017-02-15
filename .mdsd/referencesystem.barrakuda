@@ -29,7 +29,7 @@ serviceModel ordering package edu.hm.ba.kongo.shop version 1.0{
 
     entity orderingItem {
         cart warehouse.OID "123";
-        orderedOn dateInPast "10.10.2010";
+        orderedOn dateInPast searchable "10.10.2010" ;
     }
     
     businessAction orderCart {
@@ -51,7 +51,7 @@ serviceModel ordering package edu.hm.ba.kongo.shop version 1.0{
 
 serviceModel warehouse package edu.hm.ba.kongo.shop version 1.0{
 
-    customTextType OID maxLength=24;
+    customTextType OID maxLength=36;
     customTextType stringMin1 minLength=1;
     customTextType longText type=long;
 	customNumberType float pointNumber minValue=0;

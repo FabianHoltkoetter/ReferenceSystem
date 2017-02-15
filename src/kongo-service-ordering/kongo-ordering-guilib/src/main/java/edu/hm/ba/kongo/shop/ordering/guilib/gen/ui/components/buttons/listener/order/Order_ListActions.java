@@ -1,6 +1,5 @@
 package edu.hm.ba.kongo.shop.ordering.guilib.gen.ui.components.buttons.listener.order;
 
-import edu.hm.ba.kongo.shop.ordering.client.local.Order_;
 import de.muenchen.vaadin.guilib.components.actions.EntityListActions;
 
 import java.util.List;

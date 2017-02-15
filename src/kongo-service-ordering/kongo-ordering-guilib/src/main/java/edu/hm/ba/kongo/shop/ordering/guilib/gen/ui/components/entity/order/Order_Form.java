@@ -2,19 +2,13 @@ package edu.hm.ba.kongo.shop.ordering.guilib.gen.ui.components.entity.order;
 
 import com.vaadin.data.fieldgroup.BeanFieldGroup;
 import com.vaadin.data.fieldgroup.FieldGroup;
-import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.DateField;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.TextField;
-import com.vaadin.ui.TextArea;
-import com.vaadin.ui.PasswordField;
-import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.Field;
 import com.vaadin.ui.themes.ValoTheme;
-import org.vaadin.tokenfield.TokenField;
 import com.vaadin.data.Validator;
 
-import edu.hm.ba.kongo.shop.ordering.client.local.Order_;
 import de.muenchen.vaadin.guilib.util.FormUtil;
 import de.muenchen.vaadin.guilib.components.BaseComponent;
 import java.util.Arrays;

@@ -4,9 +4,6 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.vaadin.server.Page;
 import com.vaadin.spring.annotation.SpringComponent;
 import com.vaadin.spring.annotation.UIScope;
-import edu.hm.ba.kongo.shop.ordering.client.local.Order_;
-import edu.hm.ba.kongo.shop.ordering.client.rest.Order_RestClient;
-import edu.hm.ba.kongo.shop.ordering.client.rest.Order_RestClientImpl;
 import edu.hm.ba.kongo.shop.ordering.guilib.services.Order_FallbackDataGenerator;
 
 import de.muenchen.vaadin.guilib.services.SecurityService;
@@ -15,8 +12,6 @@ import de.muenchen.vaadin.demo.i18nservice.buttons.SimpleAction;
 import de.muenchen.vaadin.guilib.BaseUI;
 import de.muenchen.vaadin.guilib.components.GenericErrorNotification;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.hateoas.Link;
@@ -26,15 +21,8 @@ import org.springframework.web.client.RestTemplate;
 
 import java.io.Serializable;
 import java.net.URI;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.Callable;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 import static de.muenchen.vaadin.demo.i18nservice.I18nPaths.getNotificationPath;
 

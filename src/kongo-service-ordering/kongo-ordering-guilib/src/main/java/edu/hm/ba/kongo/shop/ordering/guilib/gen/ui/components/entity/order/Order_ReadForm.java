@@ -9,7 +9,6 @@ import de.muenchen.vaadin.guilib.components.buttons.ActionButton;
 
 import de.muenchen.vaadin.demo.i18nservice.buttons.SimpleAction;
 
-import edu.hm.ba.kongo.shop.ordering.client.local.Order_;
 import edu.hm.ba.kongo.shop.ordering.guilib.gen.ui.components.buttons.listener.order.Order_SingleActions;
 
 public class Order_ReadForm extends BaseComponent {

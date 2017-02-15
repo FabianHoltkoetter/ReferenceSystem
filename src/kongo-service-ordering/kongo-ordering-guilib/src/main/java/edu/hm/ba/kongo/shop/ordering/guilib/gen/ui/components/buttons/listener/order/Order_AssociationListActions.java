@@ -1,7 +1,6 @@
 package edu.hm.ba.kongo.shop.ordering.guilib.gen.ui.components.buttons.listener.order;
 
 import de.muenchen.eventbus.events.Association;
-import edu.hm.ba.kongo.shop.ordering.client.local.Order_;
 import de.muenchen.vaadin.guilib.components.actions.EntityAssociationListAction;
 import java.util.List;
 import java.util.function.Supplier;

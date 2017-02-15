@@ -4,7 +4,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Table;	
+import javax.persistence.Table;
+
+import de.muenchen.service.PetersPerfectBridge;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.FieldBridge;
 import org.hibernate.search.annotations.Indexed;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -45,6 +49,8 @@ public class OrderingItem_ extends BaseEntity {
 	@JsonSerialize(using = LocalDateSerializer.class)
 	@NotNull
 	@Past
+	@Field
+	@FieldBridge(impl = PetersPerfectBridge.class)
 	private java.time.LocalDate orderedOn;
 	
 	
@@ -80,14 +86,14 @@ public class OrderingItem_ extends BaseEntity {
 			return false;
 		if (this == other)
 			return true;
-		if (!(other.getClass() == OrderingItem_.class))
+		if (!(other.getClass() == this.getClass()))
 			return false;
 		if (!super.equals(other))
 			return false;
 		OrderingItem_ orderingItem = (OrderingItem_) other;
 		if (getCart() != null ? !getCart().equals(orderingItem.getCart()) : orderingItem.getCart() != null)
 			return false;
-		if (getOrderedOn() != orderingItem.getOrderedOn())
+		if(!getOrderedOn().equals(orderingItem.getOrderedOn()))
 			return false;
 		return true;
 	}

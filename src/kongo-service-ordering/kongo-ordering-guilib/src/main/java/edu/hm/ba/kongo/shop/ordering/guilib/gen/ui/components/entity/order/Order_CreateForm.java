@@ -1,20 +1,12 @@
 package edu.hm.ba.kongo.shop.ordering.guilib.gen.ui.components.entity.order;
 
-import com.vaadin.data.Validator;
-import com.vaadin.server.UserError;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.Field;
-import com.vaadin.ui.Grid;
 import com.vaadin.ui.HorizontalLayout;
-import java.util.stream.Collectors;
-import java.util.NoSuchElementException;
 
-import edu.hm.ba.kongo.shop.ordering.client.local.Order_;
 import edu.hm.ba.kongo.shop.ordering.guilib.gen.ui.components.buttons.listener.order.Order_SingleActions;
 
 import de.muenchen.vaadin.demo.i18nservice.buttons.SimpleAction;
-import de.muenchen.vaadin.guilib.BaseUI;
-import de.muenchen.vaadin.guilib.components.GenericGrid;
 import de.muenchen.vaadin.guilib.components.actions.NavigateActions;
 import de.muenchen.vaadin.guilib.components.buttons.ActionButton;
 

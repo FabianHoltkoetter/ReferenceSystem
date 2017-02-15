@@ -2,7 +2,7 @@ package edu.hm.ba.kongo.shop.ordering.guilib.gen.services.model;
 
 import de.muenchen.vaadin.guilib.util.Datastore;
 import com.vaadin.data.util.BeanItemContainer;
-import edu.hm.ba.kongo.shop.ordering.client.local.Order_;
+
 import java.util.Optional;
 
 /*

@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by Fabian on 25.01.2017.
+ * Created by Fabian Wilms on 25.01.2017.
  */
 public class Order_ResourceServiceImplTest {
 

@@ -10,14 +10,12 @@ import de.muenchen.eventbus.selector.entity.RequestEvent;
 import de.muenchen.eventbus.selector.entity.ResponseEntityKey;
 
 import edu.hm.ba.kongo.shop.ordering.guilib.gen.services.Order_Service;
-import edu.hm.ba.kongo.shop.ordering.client.local.Order_;
 import edu.hm.ba.kongo.shop.ordering.guilib.gen.services.model.Order_Datastore;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.ResourceSupport;
-import org.springframework.hateoas.Link;
 import reactor.bus.Event;
 
 import javax.annotation.PostConstruct;
@@ -25,7 +23,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 import de.muenchen.vaadin.guilib.BaseUI;
 
 /*

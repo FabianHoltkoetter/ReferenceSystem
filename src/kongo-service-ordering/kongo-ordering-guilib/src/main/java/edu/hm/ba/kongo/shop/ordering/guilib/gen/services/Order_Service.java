@@ -1,6 +1,5 @@
 package edu.hm.ba.kongo.shop.ordering.guilib.gen.services;
 
-import edu.hm.ba.kongo.shop.ordering.client.local.Order_;
 import org.springframework.hateoas.Link;
 
 import java.util.List;

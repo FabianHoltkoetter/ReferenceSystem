@@ -1,14 +1,6 @@
 package edu.hm.ba.kongo.shop.ordering.guilib.gen.ui.components.entity.order;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.stream.Collectors;
-
-import org.springframework.hateoas.Link;
-
-import com.vaadin.data.util.BeanItemContainer;
 import de.muenchen.eventbus.selector.entity.ResponseEntityKey;
-import edu.hm.ba.kongo.shop.ordering.client.local.Order_;
 import edu.hm.ba.kongo.shop.ordering.guilib.gen.ui.components.buttons.listener.order.Order_SingleActions;
 import edu.hm.ba.kongo.shop.ordering.guilib.gen.services.model.Order_Datastore;
 
