@@ -55,7 +55,7 @@ public class Cart_ extends BaseEntity {
 	
 	@Column(name="userID")
 	@NotNull
-	@Size(max=24)
+	@Size(max=36)
 	private String userID;
 	
 	

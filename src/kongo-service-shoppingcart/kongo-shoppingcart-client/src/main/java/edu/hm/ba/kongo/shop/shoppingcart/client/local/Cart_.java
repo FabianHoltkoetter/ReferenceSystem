@@ -17,7 +17,7 @@ import org.springframework.hateoas.ResourceSupport;
 public class Cart_ extends ResourceSupport {
 	
 	@NotNull
-	@Size(max=24)
+	@Size(max=36)
 	private String userID;
 	
 	@NotNull

@@ -6,7 +6,7 @@
 	
 	create table Cart (
 	oid varchar(36),
-	userid varchar(24) not null, 
+	userid varchar(36) not null, 
 	totalprice decimal not null, 
 	primary key (oid));
 	
@@ -14,7 +14,7 @@
 	create table cart_items (
 	cart_oid varchar(36) not null, 
 	order_index bigint,
-	product varchar(24) not null,
+	product varchar(36) not null,
 	quantity bigint not null,
 	primary key ( cart_oid) );
 	

@@ -28,4 +28,21 @@ public class Permission extends BaseEntity {
         this.permission = permission;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+
+        Permission that = (Permission) o;
+
+        return getPermission() != null ? getPermission().equals(that.getPermission()) : that.getPermission() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + (getPermission() != null ? getPermission().hashCode() : 0);
+        return result;
+    }
 }

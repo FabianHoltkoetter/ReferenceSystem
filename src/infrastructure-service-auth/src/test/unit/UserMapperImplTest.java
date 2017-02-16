@@ -69,7 +69,7 @@ public class UserMapperImplTest {
     @Test
     public void authoritiesToAuthoritiesTest(){
         Set<String> strings = userMapper.authoritiesToAuthorities(authorities);
-        assertEquals(strings, new HashSet<String>(permissionNames));
+        assertEquals(new HashSet<String>(permissionNames), strings);
     }
 
     @Test

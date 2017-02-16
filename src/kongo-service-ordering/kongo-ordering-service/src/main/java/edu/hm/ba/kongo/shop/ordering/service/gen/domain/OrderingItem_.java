@@ -4,17 +4,16 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Table;
-
-import de.muenchen.service.PetersPerfectBridge;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.FieldBridge;
+import javax.persistence.Table;	
 import org.hibernate.search.annotations.Indexed;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import org.hibernate.search.annotations.FieldBridge;
+import org.hibernate.search.annotations.Field;
 import de.muenchen.service.BaseEntity;
+import de.muenchen.service.PetersPerfectBridge;
 import de.muenchen.vaadin.demo.apilib.domain.Past;
 import de.muenchen.auditing.MUCAudited;
 
@@ -40,17 +39,17 @@ public class OrderingItem_ extends BaseEntity {
 	
 	@Column(name="cart")
 	@NotNull
-	@Size(max=24)
+	@Size(max=36)
 	private String cart;
 	
 	
 	@Column(name="orderedOn")
+	@Field
+	@FieldBridge(impl = PetersPerfectBridge.class)
 	@JsonDeserialize(using = LocalDateDeserializer.class)
 	@JsonSerialize(using = LocalDateSerializer.class)
 	@NotNull
 	@Past
-	@Field
-	@FieldBridge(impl = PetersPerfectBridge.class)
 	private java.time.LocalDate orderedOn;
 	
 	
@@ -86,14 +85,14 @@ public class OrderingItem_ extends BaseEntity {
 			return false;
 		if (this == other)
 			return true;
-		if (!(other.getClass() == this.getClass()))
+		if (!(other.getClass() == OrderingItem_.class))
 			return false;
 		if (!super.equals(other))
 			return false;
 		OrderingItem_ orderingItem = (OrderingItem_) other;
 		if (getCart() != null ? !getCart().equals(orderingItem.getCart()) : orderingItem.getCart() != null)
 			return false;
-		if(!getOrderedOn().equals(orderingItem.getOrderedOn()))
+		if (!getOrderedOn().equals(orderingItem.getOrderedOn()))
 			return false;
 		return true;
 	}

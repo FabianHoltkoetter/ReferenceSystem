@@ -17,7 +17,7 @@ import org.springframework.hateoas.ResourceSupport;
 public class OrderingItem_ extends ResourceSupport {
 	
 	@NotNull
-	@Size(max=24)
+	@Size(max=36)
 	private String cart;
 	
 	@NotNull

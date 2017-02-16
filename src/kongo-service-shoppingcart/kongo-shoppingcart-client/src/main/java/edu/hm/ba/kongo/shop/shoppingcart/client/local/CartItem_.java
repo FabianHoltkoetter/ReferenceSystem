@@ -17,7 +17,7 @@ import org.springframework.hateoas.ResourceSupport;
 public class CartItem_ {
 	
 	@NotNull
-	@Size(max=24)
+	@Size(max=36)
 	private String product;
 	
 	@NotNull

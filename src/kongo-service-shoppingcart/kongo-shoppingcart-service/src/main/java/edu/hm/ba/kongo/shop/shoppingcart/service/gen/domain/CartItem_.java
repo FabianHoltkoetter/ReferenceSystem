@@ -31,7 +31,7 @@ public class CartItem_ {
 	
 	@Column(name="product")
 	@NotNull
-	@Size(max=24)
+	@Size(max=36)
 	private String product;
 	
 	

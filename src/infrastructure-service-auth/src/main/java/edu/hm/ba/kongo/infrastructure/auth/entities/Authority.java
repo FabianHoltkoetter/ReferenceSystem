@@ -51,5 +51,26 @@ public class Authority extends BaseEntity {
     public void setPermissions(Set<Permission> permissions) {
         this.permissions = permissions;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+
+        Authority authority1 = (Authority) o;
+
+        if (getAuthority() != null ? !getAuthority().equals(authority1.getAuthority()) : authority1.getAuthority() != null)
+            return false;
+        return getPermissions() != null ? getPermissions().equals(authority1.getPermissions()) : authority1.getPermissions() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + (getAuthority() != null ? getAuthority().hashCode() : 0);
+        result = 31 * result + (getPermissions() != null ? getPermissions().hashCode() : 0);
+        return result;
+    }
 }
 
