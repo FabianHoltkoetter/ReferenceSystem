@@ -44,8 +44,6 @@ public class OrderingItem_SearchControllerTest extends OrderingServiceBaseTest {
 
     @Before
     public void createTestData(){
-        SecurityContext context = SecurityContextHolder.getContext();
-        context.setAuthentication(TestAuthenticationProvider.getTestAuthenticationWithAll());
         testDatenBusinessActionService.testdatenErzeugen();
     }
 

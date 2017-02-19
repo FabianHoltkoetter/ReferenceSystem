@@ -144,7 +144,7 @@ spring:
         ddl-auto: create-drop
 # random server port to avoid port 
 # conflicts on localhost
-server.port: 0
+server.port: 8203
 # database specific DDL location
 flyway.locations: db/migration/common
 eureka.client:
