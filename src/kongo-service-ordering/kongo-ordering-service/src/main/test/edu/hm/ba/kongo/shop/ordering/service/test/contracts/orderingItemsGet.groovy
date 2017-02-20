@@ -1,4 +1,12 @@
-org.springframework.cloud.contract.spec.Contract.make {
+package edu.hm.ba.kongo.shop.ordering.service.test.contracts
+
+import org.springframework.cloud.contract.spec.Contract
+
+
+/**
+ * Contract for GET on the base endpoint
+ */
+Contract.make {
     request {
         method 'GET'
         url '/orderingItems'

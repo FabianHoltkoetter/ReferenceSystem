@@ -2,6 +2,7 @@ package edu.hm.ba.kongo.shop.ordering.service.test.contracts;
 
 import com.jayway.restassured.module.mockmvc.RestAssuredMockMvc;
 import edu.hm.ba.kongo.shop.ordering.service.MicroServiceApplication;
+import edu.hm.ba.kongo.shop.ordering.service.test.utils.TestAuthenticationProvider;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,7 +12,6 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
-import edu.hm.ba.kongo.shop.ordering.service.test.utils.TestAuthenticationProvider;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
