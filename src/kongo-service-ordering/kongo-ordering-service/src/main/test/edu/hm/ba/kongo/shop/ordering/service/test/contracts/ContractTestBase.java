@@ -2,6 +2,7 @@ package edu.hm.ba.kongo.shop.ordering.service.test.contracts;
 
 import com.jayway.restassured.module.mockmvc.RestAssuredMockMvc;
 import edu.hm.ba.kongo.shop.ordering.service.MicroServiceApplication;
+import edu.hm.ba.kongo.shop.ordering.service.rest.OrderingItem_Repository;
 import edu.hm.ba.kongo.shop.ordering.service.test.utils.TestAuthenticationProvider;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,6 +27,8 @@ public class ContractTestBase {
 
     @Autowired
     private WebApplicationContext applicationContext;
+    @Autowired
+    private OrderingItem_Repository repository;
 
     private MockMvc mockMvc;
 
@@ -37,10 +40,16 @@ public class ContractTestBase {
         SecurityContext context = SecurityContextHolder.getContext();
         context.setAuthentication(TestAuthenticationProvider.getTestAuthenticationWithAll());
 
-        mockMvc = MockMvcBuilders.webAppContextSetup(applicationContext).build();
+        mockMvc = MockMvcBuilders
+                .webAppContextSetup(applicationContext)
+                .build();
         RestAssuredMockMvc.mockMvc(mockMvc);
     }
 
     @Test
     public void contextStarts(){}
+
+    public void isDataCreated(){
+        assert repository.count() == 1;
+    }
 }

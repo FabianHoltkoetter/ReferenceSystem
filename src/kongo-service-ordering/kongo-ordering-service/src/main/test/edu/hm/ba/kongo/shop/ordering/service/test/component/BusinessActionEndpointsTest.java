@@ -75,14 +75,10 @@ public class BusinessActionEndpointsTest extends OrderingServiceBaseTest{
                 .andExpect(status().isOk());
     }
 
-    @Test(expected = NestedServletException.class)
+    @Test
     public void orderCartEndpointTest() throws Exception {
         Map<String, String> parameters = new HashMap<>();
         parameters.put("cartID", "123");
-
-        String contentAsString = mockMvc.perform(get("/businessActions")).andReturn().getResponse().getContentAsString();
-        Map<String, Object> stringObjectMap = parser.parseMap(contentAsString);
-
 
         mockMvc.perform(get("/businessActions/orderCart"))
                 .andExpect(status().isMethodNotAllowed());
@@ -91,11 +87,10 @@ public class BusinessActionEndpointsTest extends OrderingServiceBaseTest{
         mockMvc.perform(post("/businessActions/orderCart")
                         .content(parser.formatMap(parameters))
                         .contentType(MediaType.APPLICATION_JSON_UTF8))
-                .andExpect(status().isInternalServerError())
-                .andExpect(jsonPath("$.exception").value("java.lang.UnsupportedOperationException"));
+                .andExpect(status().isInternalServerError());
     }
 
-    @Test(expected = NestedServletException.class)
+    @Test
     public void sendInvoiceTest() throws Exception {
         Map<String, String> parameters = new HashMap<>();
         parameters.put("orderID", "123");
@@ -107,11 +102,10 @@ public class BusinessActionEndpointsTest extends OrderingServiceBaseTest{
         mockMvc.perform(post("/businessActions/sendInvoice")
                         .content(parser.formatMap(parameters))
                         .contentType(MediaType.APPLICATION_JSON_UTF8))
-                .andExpect(status().isInternalServerError())
-                .andExpect(jsonPath("$.exception").value("java.lang.UnsupportedOperationException"));
+                .andExpect(status().isInternalServerError());
     }
 
-    @Test(expected = NestedServletException.class)
+    @Test
     public void cancelOrderTest() throws Exception {
         Map<String, String> parameters = new HashMap<>();
         parameters.put("orderID", "123");
@@ -123,8 +117,7 @@ public class BusinessActionEndpointsTest extends OrderingServiceBaseTest{
         mockMvc.perform(post("/businessActions/cancelOrder")
                         .content(parser.formatMap(parameters))
                         .contentType(MediaType.APPLICATION_JSON_UTF8))
-                .andExpect(status().isInternalServerError())
-                .andExpect(jsonPath("$.exception").value("java.lang.UnsupportedOperationException"));
+                .andExpect(status().isInternalServerError());
 
     }
 }
