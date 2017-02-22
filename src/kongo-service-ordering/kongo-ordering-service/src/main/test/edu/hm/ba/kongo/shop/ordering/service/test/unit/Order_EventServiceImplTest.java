@@ -3,6 +3,7 @@ package edu.hm.ba.kongo.shop.ordering.service.test.unit;
 import edu.hm.ba.kongo.shop.ordering.service.gen.domain.OrderingItem_;
 import edu.hm.ba.kongo.shop.ordering.service.gen.services.event.OrderingItem_EventService;
 import edu.hm.ba.kongo.shop.ordering.service.services.event.OrderingItem_EventServiceImpl;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.time.LocalDate;
@@ -17,14 +18,19 @@ public class Order_EventServiceImplTest {
 
     OrderingItem_EventService order_eventService = new OrderingItem_EventServiceImpl();
 
-    @Test
-    public void onAfterCreateTest(){
-        OrderingItem_ order_ = new OrderingItem_();
-        String cart = "testcart";
-        LocalDate orderdOn = LocalDate.of(2010, 10, 10);
+    private OrderingItem_ order_;
+    private String cart = "testcart";
+    private LocalDate orderdOn = LocalDate.of(2010, 10, 10);
+
+    @Before
+    public void setup(){
+        order_ = new OrderingItem_();
         order_.setCart(cart);
         order_.setOrderedOn(orderdOn);
+    }
 
+    @Test
+    public void onAfterCreateTest(){
         order_eventService.onAfterCreate(order_);
 
         assertEquals(order_.getCart(), cart);
@@ -33,12 +39,6 @@ public class Order_EventServiceImplTest {
 
     @Test
     public void onBeforeCreateTest(){
-        OrderingItem_ order_ = new OrderingItem_();
-        String cart = "testcart";
-        LocalDate orderdOn = LocalDate.of(2010, 10, 10);
-        order_.setCart(cart);
-        order_.setOrderedOn(orderdOn);
-
         order_eventService.onBeforeCreate(order_);
 
         assertEquals(order_.getCart(), cart);
@@ -47,12 +47,6 @@ public class Order_EventServiceImplTest {
 
     @Test
     public void onAfterSaveTest(){
-        OrderingItem_ order_ = new OrderingItem_();
-        String cart = "testcart";
-        LocalDate orderdOn = LocalDate.of(2010, 10, 10);
-        order_.setCart(cart);
-        order_.setOrderedOn(orderdOn);
-
         order_eventService.onAfterSave(order_);
 
         assertEquals(order_.getCart(), cart);
@@ -61,12 +55,6 @@ public class Order_EventServiceImplTest {
 
     @Test
     public void onBeforeSaveTest(){
-        OrderingItem_ order_ = new OrderingItem_();
-        String cart = "testcart";
-        LocalDate orderdOn = LocalDate.of(2010, 10, 10);
-        order_.setCart(cart);
-        order_.setOrderedOn(orderdOn);
-
         order_eventService.onBeforeSave(order_);
 
         assertEquals(order_.getCart(), cart);
@@ -75,12 +63,7 @@ public class Order_EventServiceImplTest {
 
     @Test
     public void onAfterLinkSaveTest(){
-        OrderingItem_ order_ = new OrderingItem_();
-        String cart = "testcart";
-        LocalDate orderdOn = LocalDate.of(2010, 10, 10);
         String anotherObject = "test";
-        order_.setCart(cart);
-        order_.setOrderedOn(orderdOn);
 
         order_eventService.onAfterLinkSave(order_, anotherObject);
 
@@ -90,12 +73,7 @@ public class Order_EventServiceImplTest {
 
     @Test
     public void onBeforeLinkSaveTest(){
-        OrderingItem_ order_ = new OrderingItem_();
-        String cart = "testcart";
-        LocalDate orderdOn = LocalDate.of(2010, 10, 10);
         String anotherObject = "test";
-        order_.setCart(cart);
-        order_.setOrderedOn(orderdOn);
 
         order_eventService.onBeforeLinkDelete(order_, anotherObject);
 
@@ -105,12 +83,7 @@ public class Order_EventServiceImplTest {
 
     @Test
     public void onAfterLinkDeleteTest(){
-        OrderingItem_ order_ = new OrderingItem_();
-        String cart = "testcart";
-        LocalDate orderdOn = LocalDate.of(2010, 10, 10);
         String anotherObject = "test";
-        order_.setCart(cart);
-        order_.setOrderedOn(orderdOn);
 
         order_eventService.onAfterLinkDelete(order_, anotherObject);
 
@@ -120,12 +93,7 @@ public class Order_EventServiceImplTest {
 
     @Test
     public void onBeforeLinkDeleteTest(){
-        OrderingItem_ order_ = new OrderingItem_();
-        String cart = "testcart";
-        LocalDate orderdOn = LocalDate.of(2010, 10, 10);
         String anotherObject = "test";
-        order_.setCart(cart);
-        order_.setOrderedOn(orderdOn);
 
         order_eventService.onBeforeLinkDelete(order_, anotherObject);
 
@@ -135,11 +103,7 @@ public class Order_EventServiceImplTest {
 
     @Test
     public void onAfterDeleteTest(){
-        OrderingItem_ order_ = new OrderingItem_();
-        String cart = "testcart";
-        LocalDate orderdOn = LocalDate.of(2010, 10, 10);
-        order_.setCart(cart);
-        order_.setOrderedOn(orderdOn);
+        String anotherObject = "test";
 
         order_eventService.onAfterDelete(order_);
 
@@ -149,11 +113,7 @@ public class Order_EventServiceImplTest {
 
     @Test
     public void onBeforeDelete(){
-        OrderingItem_ order_ = new OrderingItem_();
-        String cart = "testcart";
-        LocalDate orderdOn = LocalDate.of(2010, 10, 10);
-        order_.setCart(cart);
-        order_.setOrderedOn(orderdOn);
+        String anotherObject = "test";
 
         order_eventService.onBeforeDelete(order_);
 

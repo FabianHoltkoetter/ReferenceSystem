@@ -49,6 +49,7 @@ public class OrderingItemTest {
         item_1.setCart("123");
         item_1.setOrderedOn(null);
         assertFalse(item_.equals(item_1));
+        item_1.setOrderedOn(LocalDate.parse("10.10.2010", DateTimeFormatter.ofPattern("dd.MM.yyyy")));
         assertFalse(item_.equals(null));
         assertFalse(item_.equals("test"));
         assertFalse(item_.equals(item_2));
