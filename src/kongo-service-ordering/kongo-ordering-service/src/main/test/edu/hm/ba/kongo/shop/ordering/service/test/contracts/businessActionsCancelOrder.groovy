@@ -19,6 +19,12 @@ Contract.make {
     }
     response {
         status 500
-        body('The BusinessAction cancelorder is not yet implemented!')
+        body("""
+{
+  "error": "Unsupported Operation Exception",
+  "message": "The BusinessAction cancelorder is not yet implemented!",
+  "status": 500
+}
+""")
     }
 }

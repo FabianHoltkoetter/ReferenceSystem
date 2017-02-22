@@ -13,6 +13,13 @@ Contract.make {
     }
 
     response {
-        status 404
+        status 200
+        body("""
+{
+  "_embedded": {
+    "orderingItems": []
+  }
+}
+""")
     }
 }

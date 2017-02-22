@@ -44,6 +44,8 @@ public class ContractTestBase {
                 .webAppContextSetup(applicationContext)
                 .build();
         RestAssuredMockMvc.mockMvc(mockMvc);
+
+
     }
 
     @Test

@@ -9,21 +9,19 @@ import org.springframework.cloud.contract.spec.Contract
 Contract.make {
     request {
         method 'POST'
-        url '/businessActions/orderCart'
+        url '/businessActions/sendInvoice'
         headers {
             contentType(applicationJson())
         }
-        body([
-                cartID: '123'
-        ])
+        body("""{}""")
     }
     response {
-        status 500
+        status 422
         body("""
 {
-  "error": "Unsupported Operation Exception",
-  "message": "The BusinessAction ordercart is not yet implemented!",
-  "status": 500
+  "error": "Illegal Argument Exception",
+  "message": "Expected values in body: String orderID - Missing [orderID]",
+  "status": 422
 }
 """)
     }

@@ -101,14 +101,14 @@ public class OrderingItem_RepositoryTest extends OrderingServiceBaseTest {
 
     @Test
     public void findByCartTest(){
-        OrderingItem_ order = repository.findByCart("123");
+        OrderingItem_ order = repository.findByCart("123").iterator().next();
         assertNotNull(order);
         assertEquals(order.getOrderedOn(), LocalDate.parse("10.10.2010", DateTimeFormatter.ofPattern("dd.MM.yyyy")));
     }
 
     @Test
     public void findByOrderedOnTest(){
-        OrderingItem_ order = repository.findByOrderedOn(LocalDate.parse("10.10.2010", DateTimeFormatter.ofPattern("dd.MM.yyyy")));
+        OrderingItem_ order = repository.findByOrderedOn(LocalDate.parse("10.10.2010", DateTimeFormatter.ofPattern("dd.MM.yyyy"))).iterator().next();
         assertNotNull(order);
         assertEquals(order.getCart(), "123");
     }

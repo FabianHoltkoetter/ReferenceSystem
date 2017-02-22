@@ -44,6 +44,13 @@ public class OrderingItemTest {
     @Test
     public void equalsTest(){
         assertTrue(item_.equals(item_1));
+        item_1.setCart(null);
+        assertFalse(item_.equals(item_1));
+        item_1.setCart("123");
+        item_1.setOrderedOn(null);
+        assertFalse(item_.equals(item_1));
+        assertFalse(item_.equals(null));
+        assertFalse(item_.equals("test"));
         assertFalse(item_.equals(item_2));
         assertFalse(item_.equals(item_3));
     }

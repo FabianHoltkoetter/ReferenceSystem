@@ -9,6 +9,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.repository.NoRepositoryBean;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.access.prepost.PreAuthorize;
 
 import edu.hm.ba.kongo.shop.ordering.service.gen.domain.OrderingItem_;
@@ -90,8 +91,9 @@ public interface Generated_OrderingItem_Repository extends CrudRepository<Orderi
 	@CacheEvict(value = CACHE, allEntries = true)
 	@PreAuthorize("hasAuthority('ordering_DELETE_OrderingItem')")
 	void deleteAll();
-	
-	OrderingItem_ findByCart(@Param(value= "cart") String cart);
-	OrderingItem_ findByOrderedOn(@Param(value= "orderedOn") java.time.LocalDate orderedOn);
+
+	Iterable<OrderingItem_> findByCart(@Param(value= "cart") String cart);
+	Iterable<OrderingItem_> findByOrderedOn(
+			@Param(value= "orderedOn")@DateTimeFormat(pattern = "yyyy-MM-dd") java.time.LocalDate orderedOn);
 	
 }
