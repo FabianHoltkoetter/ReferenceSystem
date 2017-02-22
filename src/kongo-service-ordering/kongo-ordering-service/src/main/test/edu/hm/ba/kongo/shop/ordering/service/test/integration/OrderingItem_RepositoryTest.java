@@ -90,7 +90,8 @@ public class OrderingItem_RepositoryTest extends OrderingServiceBaseTest {
         order.setOid(oid);
         repository.delete(order);
 
-        assertNull(repository.findOne(oid));
+        assertEquals(repository.count(), 0);
+        assertFalse(repository.exists(oid));
     }
 
     @Test

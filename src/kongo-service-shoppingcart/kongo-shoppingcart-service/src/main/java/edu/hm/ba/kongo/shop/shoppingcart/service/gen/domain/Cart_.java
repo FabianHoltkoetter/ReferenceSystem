@@ -1,21 +1,12 @@
 package edu.hm.ba.kongo.shop.shoppingcart.service.gen.domain;
 
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.validation.constraints.DecimalMin;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;	
 import java.math.BigDecimal;
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
-import javax.persistence.Embedded;
-import javax.persistence.ElementCollection;
-import javax.persistence.ManyToMany;
-import javax.persistence.OrderColumn;
-import javax.persistence.CascadeType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
+
+import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Indexed;
 import de.muenchen.service.BaseEntity;
 import de.muenchen.auditing.MUCAudited;
@@ -38,24 +29,24 @@ public class Cart_ extends BaseEntity {
 	
 	// ========= //
 	// Variables //
-	// ========= //
-	
 	@OrderColumn(name="order_index")
 	@JoinTable(name = "Cart_Items", joinColumns = { @JoinColumn(name = "cart_oid")})
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
 	@Embedded
 	@AttributeOverrides({
-		@AttributeOverride(name="product", column=@Column(name="items_product")),
-		@AttributeOverride(name="quantity", column=@Column(name="items_quantity"))
-	})	
+			@AttributeOverride(name="product", column=@Column(name="items_product")),
+			@AttributeOverride(name="quantity", column=@Column(name="items_quantity"))
+	})
 	@NotNull
-	@Size(min = 1)
 	private java.util.Set<CartItem_> items = new java.util.LinkedHashSet<>();
-	
+
+	// ========= //
+
 	
 	@Column(name="userID")
 	@NotNull
 	@Size(max=36)
+	@Field
 	private String userID;
 	
 	
@@ -115,7 +106,7 @@ public class Cart_ extends BaseEntity {
 			return false;
 		if (getUserID() != null ? !getUserID().equals(cart.getUserID()) : cart.getUserID() != null)
 			return false;
-		if (getTotalPrice() != cart.getTotalPrice())
+		if (getTotalPrice().equals(cart.getTotalPrice()))
 			return false;
 		return true;
 	}

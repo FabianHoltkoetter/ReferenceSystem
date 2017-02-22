@@ -85,7 +85,7 @@ public class OrderingItem_ extends BaseEntity {
 			return false;
 		if (this == other)
 			return true;
-		if (!(other.getClass() == OrderingItem_.class))
+		if (!(other.getClass() == this.getClass()))
 			return false;
 		if (!super.equals(other))
 			return false;

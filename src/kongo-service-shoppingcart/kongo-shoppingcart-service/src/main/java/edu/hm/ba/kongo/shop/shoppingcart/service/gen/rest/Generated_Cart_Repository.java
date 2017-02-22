@@ -91,8 +91,8 @@ public interface Generated_Cart_Repository extends CrudRepository<Cart_, UUID> {
 	@CacheEvict(value = CACHE, allEntries = true)
 	@PreAuthorize("hasAuthority('shoppingcart_DELETE_Cart')")
 	void deleteAll();
-	
-	Cart_ findByUserID(@Param(value= "userID") String userID);
-	Cart_ findByTotalPrice(@Param(value= "totalPrice") BigDecimal totalPrice);
+
+	Iterable<Cart_> findByUserID(@Param(value= "userID") String userID);
+	Iterable<Cart_> findByTotalPrice(@Param(value= "totalPrice") BigDecimal totalPrice);
 	
 }

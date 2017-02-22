@@ -6,7 +6,7 @@ serviceModel shoppingcart package edu.hm.ba.kongo.shop version 1.0 {
 
     entity Cart {
         items manyToMany CartItem;
-        userID warehouse.OID "123";
+        userID warehouse.OID searchable "123";
         totalPrice warehouse.float "15.5";
 	}
 	

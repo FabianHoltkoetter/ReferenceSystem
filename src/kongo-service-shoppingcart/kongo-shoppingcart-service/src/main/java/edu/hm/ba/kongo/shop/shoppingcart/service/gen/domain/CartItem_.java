@@ -73,7 +73,7 @@ public class CartItem_ {
 			return false;
 		if (this == other)
 			return true;
-		if (!(other.getClass() == CartItem_.class))
+		if (!(other.getClass() == this.getClass()))
 			return false;
 		CartItem_ cartItem = (CartItem_) other;
 		if (getProduct() != null ? !getProduct().equals(cartItem.getProduct()) : cartItem.getProduct() != null)
