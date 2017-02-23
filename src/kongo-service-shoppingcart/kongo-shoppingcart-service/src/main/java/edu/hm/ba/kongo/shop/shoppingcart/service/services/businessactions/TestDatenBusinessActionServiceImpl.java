@@ -43,9 +43,10 @@ public class TestDatenBusinessActionServiceImpl implements TestDatenBusinessActi
 		cartItem.setQuantity(1L);
 		
 		// Set relations
+		cart.getItems().add(cartItem);
 		
 		//Save all example Entities in an order that won't cause errors
 		cartRepo.save(cart);
-		}
+	}
 
 }

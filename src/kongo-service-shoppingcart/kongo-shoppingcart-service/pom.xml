@@ -248,6 +248,17 @@
                         </executions>
                         -->
                     </plugin>
+            <plugin>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-contract-maven-plugin</artifactId>
+                <version>1.0.3.RELEASE</version>
+                <!-- Don't forget about this value !! -->
+                <extensions>true</extensions>
+                <configuration>
+                    <baseClassForTests>edu.hm.ba.kongo.shop.shoppingcart.service.test.contracts.ContractTestBase</baseClassForTests>
+                    <contractsDirectory>src/main/test/edu/hm/ba/kongo/shop/shoppingcart/service/test/contracts</contractsDirectory>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     

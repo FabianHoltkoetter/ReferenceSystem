@@ -1,7 +1,7 @@
-package edu.hm.ba.kongo.shop.ordering.service.test.component;
+package edu.hm.ba.kongo.shop.shoppingcart.service.test.component;
 
-import edu.hm.ba.kongo.shop.ordering.service.rest.OrderingItem_Repository;
-import edu.hm.ba.kongo.shop.ordering.service.test.integration.OrderingServiceBaseTest;
+import edu.hm.ba.kongo.shop.shoppingcart.service.test.integration.OrderingServiceBaseTest;
+import edu.hm.ba.kongo.shop.shoppingcart.service.rest.Cart_Repository;
 import org.hamcrest.core.StringEndsWith;
 import org.junit.After;
 import org.junit.Before;
@@ -21,9 +21,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
  * Created by Fabian on 19.02.2017.
@@ -31,7 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class BusinessActionEndpointsTest extends OrderingServiceBaseTest{
 
     @Autowired
-    OrderingItem_Repository repository;
+    Cart_Repository repository;
     @Autowired
     WebApplicationContext webApplicationContext;
 
@@ -62,9 +60,7 @@ public class BusinessActionEndpointsTest extends OrderingServiceBaseTest{
                 .andExpect(content().contentType("application/hal+json"))
                 .andExpect(jsonPath("$._links.self.href").value(StringEndsWith.endsWith("businessActions")))
                 .andExpect(jsonPath("$._links.testdatenErzeugen.href").value(StringEndsWith.endsWith("businessActions/testdatenErzeugen")))
-                .andExpect(jsonPath("$._links.orderCart.href").value(StringEndsWith.endsWith("businessActions/orderCart")))
-                .andExpect(jsonPath("$._links.sendInvoice.href").value(StringEndsWith.endsWith("businessActions/sendInvoice")))
-                .andExpect(jsonPath("$._links.cancelOrder.href").value(StringEndsWith.endsWith("businessActions/cancelOrder")));
+                .andExpect(jsonPath("$._links.addToCart.href").value(StringEndsWith.endsWith("businessActions/addToCart")));
 
     }
 
@@ -72,51 +68,22 @@ public class BusinessActionEndpointsTest extends OrderingServiceBaseTest{
     public void testDatenEndpointTest() throws Exception {
         mockMvc.perform(get("/businessActions/testdatenErzeugen"))
                 .andExpect(status().isOk());
+        assertEquals(repository.count(), 1);
     }
 
     @Test
     public void orderCartEndpointTest() throws Exception {
         Map<String, String> parameters = new HashMap<>();
-        parameters.put("cartID", "123");
+        parameters.put("productID", "123");
+        parameters.put("quantity", "1");
 
-        mockMvc.perform(get("/businessActions/orderCart"))
+        mockMvc.perform(get("/businessActions/addToCart"))
                 .andExpect(status().isMethodNotAllowed());
-        mockMvc.perform(post("/businessActions/orderCart"))
+        mockMvc.perform(post("/businessActions/addToCart"))
                 .andExpect(status().isBadRequest());
-        mockMvc.perform(post("/businessActions/orderCart")
+        mockMvc.perform(post("/businessActions/addToCart")
                         .content(parser.formatMap(parameters))
                         .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isInternalServerError());
-    }
-
-    @Test
-    public void sendInvoiceTest() throws Exception {
-        Map<String, String> parameters = new HashMap<>();
-        parameters.put("orderID", "123");
-
-        mockMvc.perform(get("/businessActions/sendInvoice"))
-                .andExpect(status().isMethodNotAllowed());
-        mockMvc.perform(post("/businessActions/sendInvoice"))
-                .andExpect(status().isBadRequest());
-        mockMvc.perform(post("/businessActions/sendInvoice")
-                        .content(parser.formatMap(parameters))
-                        .contentType(MediaType.APPLICATION_JSON_UTF8))
-                .andExpect(status().isInternalServerError());
-    }
-
-    @Test
-    public void cancelOrderTest() throws Exception {
-        Map<String, String> parameters = new HashMap<>();
-        parameters.put("orderID", "123");
-
-        mockMvc.perform(get("/businessActions/cancelOrder"))
-                .andExpect(status().isMethodNotAllowed());
-        mockMvc.perform(post("/businessActions/cancelOrder"))
-                .andExpect(status().isBadRequest());
-        mockMvc.perform(post("/businessActions/cancelOrder")
-                        .content(parser.formatMap(parameters))
-                        .contentType(MediaType.APPLICATION_JSON_UTF8))
-                .andExpect(status().isInternalServerError());
-
     }
 }

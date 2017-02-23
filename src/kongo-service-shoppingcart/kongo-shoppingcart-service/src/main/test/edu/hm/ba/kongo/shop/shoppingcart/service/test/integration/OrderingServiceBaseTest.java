@@ -1,7 +1,7 @@
-package edu.hm.ba.kongo.shop.ordering.service.test.integration;
+package edu.hm.ba.kongo.shop.shoppingcart.service.test.integration;
 
-import edu.hm.ba.kongo.shop.ordering.service.MicroServiceApplication;
-import edu.hm.ba.kongo.shop.ordering.service.test.utils.TestAuthenticationProvider;
+import edu.hm.ba.kongo.shop.shoppingcart.service.MicroServiceApplication;
+import edu.hm.ba.kongo.shop.shoppingcart.service.test.utils.TestAuthenticationProvider;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

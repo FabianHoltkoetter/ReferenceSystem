@@ -106,7 +106,7 @@ public class Cart_ extends BaseEntity {
 			return false;
 		if (getUserID() != null ? !getUserID().equals(cart.getUserID()) : cart.getUserID() != null)
 			return false;
-		if (getTotalPrice().equals(cart.getTotalPrice()))
+		if (!getTotalPrice().equals(cart.getTotalPrice()))
 			return false;
 		return true;
 	}
