@@ -209,7 +209,6 @@
                 <extensions>true</extensions>
                 <configuration>
                     <baseClassForTests>edu.hm.ba.kongo.shop.ordering.service.test.contracts.ContractTestBase</baseClassForTests>
-                    <contractsDirectory>src/main/test/edu/hm/ba/kongo/shop/ordering/service/test/contracts</contractsDirectory>
                 </configuration>
             </plugin>
             <plugin>

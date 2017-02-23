@@ -13,7 +13,7 @@
 	<artifactId>kongo-shoppingcart-service</artifactId>
 	<name>kongo :: shoppingcart :: service</name>
 	<version>1.0</version>
-	
+
 	<organization>
 		<name>Landeshauptstadt München</name>
 		<url>http://muenchen.de/</url>
@@ -256,7 +256,6 @@
                 <extensions>true</extensions>
                 <configuration>
                     <baseClassForTests>edu.hm.ba.kongo.shop.shoppingcart.service.test.contracts.ContractTestBase</baseClassForTests>
-                    <contractsDirectory>src/main/test/edu/hm/ba/kongo/shop/shoppingcart/service/test/contracts</contractsDirectory>
                 </configuration>
             </plugin>
         </plugins>
