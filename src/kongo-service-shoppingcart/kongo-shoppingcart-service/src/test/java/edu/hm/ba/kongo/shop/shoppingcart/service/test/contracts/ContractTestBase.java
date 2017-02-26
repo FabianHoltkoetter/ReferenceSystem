@@ -18,7 +18,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 /**
- * Created by Fabian Wilms on 11.02.2017.
+ * @author Fabian Holtkötter
+ * Base Class used by Spring Cloud Contract to run all Consumer Driven Contract Tests
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = MicroServiceApplication.class)

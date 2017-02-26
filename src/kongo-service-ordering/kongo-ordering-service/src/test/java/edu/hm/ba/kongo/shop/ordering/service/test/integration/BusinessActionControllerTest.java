@@ -22,7 +22,8 @@ import static junit.framework.TestCase.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Integration Tests for the BusinnesActionController. Checks
+ * @author Fabian Holtkötter
+ * Integration Tests for the BusinnesActionController. Checks if all BusinessActions are available and are adressed as intended.
  */
 public class BusinessActionControllerTest extends OrderingServiceBaseTest {
 
@@ -48,6 +49,13 @@ public class BusinessActionControllerTest extends OrderingServiceBaseTest {
         businessActionController.orderCart(null, null, parameters);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void orderCartNullParamTest(){
+        OrderCart_BusinessActionParameters parameters = new OrderCart_BusinessActionParameters();
+        parameters.setCartID(null);
+        businessActionController.orderCart(null, null, parameters);
+    }
+
     @Test(expected = AccessDeniedException.class)
     public void orderCartAuthenticationTest(){
         SecurityContext context = SecurityContextHolder.getContext();
@@ -65,6 +73,13 @@ public class BusinessActionControllerTest extends OrderingServiceBaseTest {
         businessActionController.sendInvoice(null, null, parameters);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void sendInvoiceNullparamTest(){
+        SendInvoice_BusinessActionParameters parameters = new SendInvoice_BusinessActionParameters();
+        parameters.setOrderID(null);
+        businessActionController.sendInvoice(null, null, parameters);
+    }
+
     @Test(expected = AccessDeniedException.class)
     public void sendInvoiceAuthenticationTest(){
         SecurityContext context = SecurityContextHolder.getContext();
@@ -79,6 +94,13 @@ public class BusinessActionControllerTest extends OrderingServiceBaseTest {
     public void cancelOrderTest(){
         CancelOrder_BusinessActionParameters parameters = new CancelOrder_BusinessActionParameters();
         parameters.setOrderID("1234-5678");
+        businessActionController.cancelOrder(null, null, parameters);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void cancelOrderNullParamTest(){
+        CancelOrder_BusinessActionParameters parameters = new CancelOrder_BusinessActionParameters();
+        parameters.setOrderID(null);
         businessActionController.cancelOrder(null, null, parameters);
     }
 

@@ -6,7 +6,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Created by Fabian on 15.02.2017.
+ * @author Fabian Holtkötter
+ * Validates the correctness of equals- and hashcode-Methods on the entity CartItem_
  */
 public class CartItemTest {
 

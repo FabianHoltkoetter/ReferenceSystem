@@ -9,9 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by Fabian on 14.02.2017.
+ * @author Fabian Holtkötter
+ * Tests the correctness of the testDatenErzeugen-BusinessAction on which some of the tests rely on.
  */
-public class TestDatenBusinessActionServiceTest extends OrderingServiceBaseTest{
+public class TestDatenBusinessActionServiceTest extends CartServiceBaseTest {
 
     @Autowired
     TestDatenBusinessActionService service;

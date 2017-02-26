@@ -20,9 +20,10 @@ import static junit.framework.TestCase.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Integration Tests for the BusinnesActionController. Checks
+ * @author Fabian Holtkötter
+ * Integration Tests for the BusinnesActionController. Checks if all BusinessActions are available and are adressed as intended.
  */
-public class BusinessActionControllerTest extends OrderingServiceBaseTest {
+public class BusinessActionControllerTest extends CartServiceBaseTest {
 
     @Autowired
     BusinessActionController businessActionController;
@@ -44,6 +45,14 @@ public class BusinessActionControllerTest extends OrderingServiceBaseTest {
         AddToCart_BusinessActionParameters parameters = new AddToCart_BusinessActionParameters();
         parameters.setProductID("123");
         parameters.setQuantity(1L);
+        businessActionController.addToCart(null, null, parameters);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void orderCarNullParamtTest(){
+        AddToCart_BusinessActionParameters parameters = new AddToCart_BusinessActionParameters();
+        parameters.setProductID(null);
+        parameters.setQuantity(null);
         businessActionController.addToCart(null, null, parameters);
     }
 

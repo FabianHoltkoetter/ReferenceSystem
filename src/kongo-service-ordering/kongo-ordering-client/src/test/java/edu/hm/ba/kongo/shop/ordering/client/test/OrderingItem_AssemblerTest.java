@@ -12,7 +12,8 @@ import java.time.LocalDate;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by Fabian on 24.01.2017.
+ * @author Fabian Holtkötter
+ * Test that assures the correctness of the OrderingItem_Assembler
  */
 public class OrderingItem_AssemblerTest {
 

@@ -5,7 +5,8 @@ import edu.hm.ba.kongo.shop.ordering.service.services.businessactions.CancelOrde
 import org.junit.Test;
 
 /**
- * Created by Fabian Wilms on 25.01.2017.
+ * @author Fabian Holtkötter
+ * Test-Class to ensure the correctness of the BusinessAction CancelOrder_
  */
 public class CancelOrder_BusinessActionServiceImplTest {
 

@@ -1,6 +1,6 @@
 package edu.hm.ba.kongo.shop.shoppingcart.service.test.component;
 
-import edu.hm.ba.kongo.shop.shoppingcart.service.test.integration.OrderingServiceBaseTest;
+import edu.hm.ba.kongo.shop.shoppingcart.service.test.integration.CartServiceBaseTest;
 import edu.hm.ba.kongo.shop.shoppingcart.service.gen.rest.search.Cart_SearchController;
 import edu.hm.ba.kongo.shop.shoppingcart.service.gen.services.businessactions.TestDatenBusinessActionService;
 import edu.hm.ba.kongo.shop.shoppingcart.service.rest.Cart_Repository;
@@ -18,9 +18,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
- * Created by Fabian on 13.02.2017.
+ * @author Fabian Holtkötter
+ * Tests if the Fuzyy Search for Cart_ works as intended by mocking a REST request
  */
-public class Cart_SearchControllerTest extends OrderingServiceBaseTest {
+public class Cart_SearchControllerTest extends CartServiceBaseTest {
 
     @Autowired
     private Cart_SearchController searchController;

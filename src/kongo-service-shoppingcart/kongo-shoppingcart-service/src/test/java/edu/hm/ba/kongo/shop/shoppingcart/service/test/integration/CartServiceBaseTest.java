@@ -1,7 +1,7 @@
-package edu.hm.ba.kongo.shop.ordering.service.test.integration;
+package edu.hm.ba.kongo.shop.shoppingcart.service.test.integration;
 
-import edu.hm.ba.kongo.shop.ordering.service.MicroServiceApplication;
-import edu.hm.ba.kongo.shop.ordering.service.test.utils.TestAuthenticationProvider;
+import edu.hm.ba.kongo.shop.shoppingcart.service.MicroServiceApplication;
+import edu.hm.ba.kongo.shop.shoppingcart.service.test.utils.TestAuthenticationProvider;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +19,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = MicroServiceApplication.class)
 @WebAppConfiguration
-public class OrderingServiceBaseTest {
+public class CartServiceBaseTest {
 
     /**
      * Injects a test authentication object into springs security context.

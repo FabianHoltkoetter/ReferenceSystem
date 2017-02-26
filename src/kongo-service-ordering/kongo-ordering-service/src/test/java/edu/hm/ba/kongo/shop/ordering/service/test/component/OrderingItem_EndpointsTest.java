@@ -27,7 +27,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
- * Created by Fabian on 19.02.2017.
+ * @author Fabian Holtkötter
+ * Tests the Endpoints for OrderEntity_ by mocking REST requests
  */
 public class OrderingItem_EndpointsTest extends OrderingServiceBaseTest {
 

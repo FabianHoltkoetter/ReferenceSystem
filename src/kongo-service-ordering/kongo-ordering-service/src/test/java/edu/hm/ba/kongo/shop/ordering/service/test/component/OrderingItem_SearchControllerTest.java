@@ -18,7 +18,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
- * Created by Fabian on 13.02.2017.
+ * @author Fabian Holtkötter
+ * Tests if the Fuzyy Search for OrderingItem_ works as intended by mocking a REST request
  */
 public class OrderingItem_SearchControllerTest extends OrderingServiceBaseTest {
 

@@ -5,7 +5,8 @@ import edu.hm.ba.kongo.shop.shoppingcart.service.services.businessactions.AddToC
 import org.junit.Test;
 
 /**
- * Created by Fabian Wilms on 25.01.2017.
+ * @author Fabian Holtkötter
+ * Test-Class to ensure the correctness of the BusinessAction AddToCart_
  */
 public class AddToCart_BusinessActionServiceImplTest {
 

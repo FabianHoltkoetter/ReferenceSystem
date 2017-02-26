@@ -5,13 +5,19 @@ import edu.hm.ba.kongo.shop.shoppingcart.service.gen.domain.CartItem_;
 import edu.hm.ba.kongo.shop.shoppingcart.service.gen.domain.Cart_;
 import edu.hm.ba.kongo.shop.shoppingcart.service.gen.services.businessactions.TestDatenBusinessActionService;
 import edu.hm.ba.kongo.shop.shoppingcart.service.rest.Cart_Repository;
+import edu.hm.ba.kongo.shop.shoppingcart.service.test.utils.TestAuthenticationProvider;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.math.BigDecimal;
-import java.math.MathContext;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -23,9 +29,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 /**
- * Created by Fabian on 14.02.2017.
+ * @author Fabian Holtkötter
+ * Integration Test that checks if the repository works as inteneded and correctly persists the entities.
  */
-public class Cart_RepositoryTest extends OrderingServiceBaseTest {
+public class Cart_RepositoryTest extends CartServiceBaseTest {
 
     @Autowired
     Cart_Repository repository;
@@ -40,6 +47,7 @@ public class Cart_RepositoryTest extends OrderingServiceBaseTest {
 
     @After
     public void deleteTestData(){
+        this.authenticateUser();
         repository.deleteAll();
     }
 
@@ -133,5 +141,46 @@ public class Cart_RepositoryTest extends OrderingServiceBaseTest {
         assertNotNull(cart_);
         assertEquals(cart_.getUserID(), "123");
         assertEquals(cart_.getItems(), cartItemSet);
+    }
+
+    @Test(expected = AccessDeniedException.class)
+    public void noReadAuthorizationTest(){
+        SecurityContext context = SecurityContextHolder.getContext();
+        context.setAuthentication(
+                TestAuthenticationProvider.getTestAuthenticationWithSpecific(
+                        AuthorityUtils.createAuthorityList(
+                                "shoppingcart_WRITE_Cart",
+                                "shoppingcart_DELETE_Cart")));
+
+        repository.findAll();
+    }
+
+    @Test(expected = AccessDeniedException.class)
+    public void noDeleteAuthorizationTest(){
+        SecurityContext context = SecurityContextHolder.getContext();
+        context.setAuthentication(
+                TestAuthenticationProvider.getTestAuthenticationWithSpecific(
+                        AuthorityUtils.createAuthorityList(
+                                "shoppingcart_READ_Cart",
+                                "shoppingcart_WRITE_Cart")));
+
+        repository.deleteAll();
+    }
+
+    @Test(expected = AccessDeniedException.class)
+    public void noWriteAuthorizationTest(){
+        SecurityContext context = SecurityContextHolder.getContext();
+        context.setAuthentication(
+                TestAuthenticationProvider.getTestAuthenticationWithSpecific(
+                        AuthorityUtils.createAuthorityList(
+                                "shoppingcart_READ_Cart",
+                                "shoppingcart_DELETE_Cart")));
+
+        Cart_ cart_ = new Cart_();
+        cart_.setUserID("123");
+        cart_.setTotalPrice(new BigDecimal(15.5));
+        cart_.setItems(cartItemSet);
+
+        repository.save(cart_);
     }
 }

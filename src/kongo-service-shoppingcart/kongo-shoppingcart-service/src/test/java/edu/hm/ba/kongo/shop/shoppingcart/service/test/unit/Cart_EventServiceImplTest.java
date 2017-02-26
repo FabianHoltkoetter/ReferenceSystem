@@ -16,7 +16,8 @@ import java.util.UUID;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by Fabian Wilms on 25.01.2017.
+ * @author Fabian Holtkötter
+ * Tests that validate the correctness of the EventService implementations. The EventServices always use copy by value.
  */
 public class Cart_EventServiceImplTest {
 

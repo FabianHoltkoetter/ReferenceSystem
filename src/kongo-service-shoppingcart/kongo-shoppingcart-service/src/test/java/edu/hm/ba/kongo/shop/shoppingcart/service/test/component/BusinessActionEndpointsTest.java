@@ -1,6 +1,6 @@
 package edu.hm.ba.kongo.shop.shoppingcart.service.test.component;
 
-import edu.hm.ba.kongo.shop.shoppingcart.service.test.integration.OrderingServiceBaseTest;
+import edu.hm.ba.kongo.shop.shoppingcart.service.test.integration.CartServiceBaseTest;
 import edu.hm.ba.kongo.shop.shoppingcart.service.rest.Cart_Repository;
 import org.hamcrest.core.StringEndsWith;
 import org.junit.After;
@@ -24,9 +24,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
- * Created by Fabian on 19.02.2017.
+ * @author Fabian Holtkötter
+ * Tests the Endpoints for the business Actions of this service by mocking REST requests
  */
-public class BusinessActionEndpointsTest extends OrderingServiceBaseTest{
+public class BusinessActionEndpointsTest extends CartServiceBaseTest {
 
     @Autowired
     Cart_Repository repository;

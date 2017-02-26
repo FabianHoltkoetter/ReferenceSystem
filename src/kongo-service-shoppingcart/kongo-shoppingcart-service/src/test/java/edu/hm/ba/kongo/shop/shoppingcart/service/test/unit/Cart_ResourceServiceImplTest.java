@@ -16,7 +16,8 @@ import java.util.UUID;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by Fabian Wilms on 25.01.2017.
+ * @author Fabian Holtkötter
+ * Checks the correctness of the ResourceService which can add additional links to a resource.
  */
 public class Cart_ResourceServiceImplTest {
 
@@ -46,5 +47,6 @@ public class Cart_ResourceServiceImplTest {
         assertEquals(process.getContent().getItems(), cartItemSet);
         assertEquals(process.getContent().getTotalPrice(), totalPrice);
         assertEquals(process.getContent().getOid(), uuid);
+        assertEquals(process.getLinks(), resource.getLinks());
     }
 }
